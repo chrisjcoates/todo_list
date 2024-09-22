@@ -16,10 +16,19 @@ class Todos:
 
     def add_todo(self):
         print("\n")
-        name = input("Enter name of todo: ")
-        desc = input("Enter description of todo: ")
-        self.todo_list.append(Todo(name, desc))
-        print(f"{name} has sucessfully been added to the todo list")
+        while True:
+            try:
+                name = input("Enter name of todo: ")
+                if len(name) == 0:
+                    print("No name was input, try again")
+                    continue
+
+                desc = input("Enter description of todo: ")
+                self.todo_list.append(Todo(name, desc))
+                print(f"{name} has sucessfully been added to the todo list")
+                break
+            except:
+                pass
 
     def remove_todo(self):
         while True:
